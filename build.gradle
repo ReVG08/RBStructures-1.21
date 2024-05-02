@@ -3,22 +3,21 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle.userdev' version '7.0.53'
+    id 'net.neoforged.gradle.userdev' version '7.0.119'
 }
 
-version = "${mod_version}"
-group = 'com.telepathicgrunt.structuretutorial'
-archivesBaseName = 'structure_tutorial'
+version = mod_version
+group = mod_group_id
 
 repositories {
     mavenLocal()
 }
 
 base {
-    archivesName = 'structure_tutorial'
+    archivesName = mod_id
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 runs {
     configureEach {
@@ -33,6 +32,10 @@ runs {
     }
 }
 
+configurations {
+    runtimeClasspath.extendsFrom localRuntime
+}
+
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
 }
@@ -41,20 +44,31 @@ tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
 
-// Example for how to get properties into the manifest for reading by the runtime..
-jar {
-    from('/') {
-        include 'LICENSE.txt'
-    }
+tasks.withType(ProcessResources).configureEach {
+    var replaceProperties = [
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            neo_version            : neo_version,
+            neo_version_range      : neo_version_range,
+            loader_version_range   : loader_version_range,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_version            : mod_version,
+            mod_authors            : mod_authors,
+            mod_description        : mod_description,
+            mod_credits            : mod_credits
+    ]
+    inputs.properties replaceProperties
 
-    manifest {
-        attributes([
-            "Specification-Title": "structure_tutorial",
-            "Specification-Vendor": "telepathicgrunt",
-            "Specification-Version": "1",
-            "Implementation-Title": project.name,
-            "Implementation-Version": project.version,
-            "Implementation-Vendor": "telepathicgrunt"
-        ])
+    filesMatching(['META-INF/mods.toml']) {
+        expand replaceProperties
+    }
+}
+
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
     }
 }
