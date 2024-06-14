@@ -1,6 +1,6 @@
 package com.telepathicgrunt.structuretutorial;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.telepathicgrunt.structuretutorial.structures.SkyStructures;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.structure.Structure;
@@ -27,7 +27,7 @@ public class STStructures {
      * some IDEs cannot resolve the typing correctly. This method explicitly states what the return type
      * is so that the IDE can put it into the DeferredRegistry properly.
      */
-    private static <T extends Structure> StructureType<T> explicitStructureTypeTyping(Codec<T> structureCodec) {
+    private static <T extends Structure> StructureType<T> explicitStructureTypeTyping(MapCodec<T> structureCodec) {
         return () -> structureCodec;
     }
 }
