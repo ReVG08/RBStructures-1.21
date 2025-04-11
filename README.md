@@ -2,9 +2,9 @@
 **How to register and generate jigsaw structures in 1.21.1+ Minecraft NeoForge using nbt files! In fact, you can actually make structures using only json files in 1.18.2+ MC!**
 
 **Change the Github branch to see other versions of this tutorial including for Fabric!**
- 
- This very small NeoForge mod is full of comments that will help you understand what a lot of the json files and what needs to be done to get your structure to generate. In all, minimum number of files for a structure is 4 json files and 1 nbt file. The json_only_house structure is made using just json files while the code_structure_sky_fan structure is mostly json files but has a custom java structure class to do extra behavior for it. Another tutorial you can check out for extra info that may be laid out much cleaner and easier to understand: https://minecraft.wiki/w/Tutorials/Custom_structures
- 
+
+ This very small NeoForge mod is full of comments that will help you understand what a lot of the json files and what needs to be done to get your structure to generate. In all, minimum number of files for a structure is 4 json files and 1 nbt file. The json_only_house structure is made using just json files while the other 3 structures are mostly json files but has custom java classes to do extra behavior for it. Another tutorial you can check out for extra info that may be laid out much cleaner and easier to understand: https://minecraft.wiki/w/Tutorials/Custom_structures
+
 ---
  
 There are 4 structures in this tutorial mod. Each one focusing on different setups you may want.
