@@ -4,7 +4,7 @@ import com.mojang.serialization.MapCodec;
 import com.revstudios.revsbetterstructures.structures.EndIslandStructures;
 import com.revstudios.revsbetterstructures.structures.OceanStructures;
 import com.revstudios.revsbetterstructures.structures.SkyStructures;
-import com.revstudios.revsbetterstructures.structures.OverworldStructures; // <-- Add this import
+import com.revstudios.revsbetterstructures.structures.OverworldStructures;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
@@ -25,7 +25,7 @@ public class RBStructures {
     public static final DeferredHolder<StructureType<?>, StructureType<EndIslandStructures>> END_ISLAND_STRUCTURES =
             DEFERRED_REGISTRY_STRUCTURE.register("end_island_structures", () -> explicitStructureTypeTyping(EndIslandStructures.CODEC));
 
-    // Register your new OverworldStructures type here:
+    // Only register the overworld structure group (not each building!)
     public static final DeferredHolder<StructureType<?>, StructureType<OverworldStructures>> OVERWORLD_STRUCTURES =
             DEFERRED_REGISTRY_STRUCTURE.register("overworld_structures", () -> explicitStructureTypeTyping(OverworldStructures.CODEC));
 

@@ -1,0 +1,30 @@
+{
+    "name": "revsbetterstructures:overworld_structures/start_pool",
+    "fallback": "minecraft:empty",
+    "elements": [
+      { "element_type": "minecraft:single_pool_element", "weight": 1,  "location": "revsbetterstructures:windmill", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 4,  "location": "revsbetterstructures:smallhouse", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 1,  "location": "revsbetterstructures:castle", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 2,  "location": "revsbetterstructures:barn", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 6,  "location": "revsbetterstructures:blueteepee", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 6,  "location": "revsbetterstructures:brownteepee", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 6,  "location": "revsbetterstructures:yellowteepee", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 3,  "location": "revsbetterstructures:cottage", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 7,  "location": "revsbetterstructures:wandercamp", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 4,  "location": "revsbetterstructures:roundedhouse", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 7,  "location": "revsbetterstructures:tentgreen", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 7,  "location": "revsbetterstructures:tentred", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 8,  "location": "revsbetterstructures:ruinedhouse", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 8,  "location": "revsbetterstructures:ruinedhouse2", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 8,  "location": "revsbetterstructures:ruinedhouse3", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 2,  "location": "revsbetterstructures:sprucetower", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 2,  "location": "revsbetterstructures:nethertower", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 10, "location": "revsbetterstructures:dioritechamp", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 10, "location": "revsbetterstructures:fallentree1", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 10, "location": "revsbetterstructures:fallentree2", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 1,  "location": "revsbetterstructures:gigatree", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 1,  "location": "revsbetterstructures:gigacactus", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 10, "location": "revsbetterstructures:rockchamp", "projection": "rigid" },
+      { "element_type": "minecraft:single_pool_element", "weight": 10, "location": "revsbetterstructures:rockchamp2", "projection": "rigid" }
+    ]
+  }
