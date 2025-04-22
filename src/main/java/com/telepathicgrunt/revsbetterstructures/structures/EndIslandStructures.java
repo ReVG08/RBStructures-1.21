@@ -3,7 +3,7 @@ package com.revstudios.revsbetterstructures;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.revstudios.revsbetterstructures.STStructures;
+import com.revstudios.revsbetterstructures.RBStructures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
@@ -152,6 +152,6 @@ public class EndIslandStructures extends Structure {
 
     @Override
     public StructureType<?> type() {
-        return STStructures.END_ISLAND_STRUCTURES.get(); // Helps the game know how to turn this structure back to json to save to chunks
+        return RBStructures.END_ISLAND_STRUCTURES.get(); // Helps the game know how to turn this structure back to json to save to chunks
     }
 }

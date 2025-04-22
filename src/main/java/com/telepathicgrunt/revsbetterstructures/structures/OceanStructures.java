@@ -3,7 +3,7 @@ package com.revstudios.revsbetterstructures;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.revstudios.revsbetterstructures.STStructures;
+import com.revstudios.revsbetterstructures.RBStructures;
 import com.revstudios.revsbetterstructures.utilities.FilterHolderSet;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -193,6 +193,6 @@ public class OceanStructures extends Structure {
 
     @Override
     public StructureType<?> type() {
-        return STStructures.OCEAN_STRUCTURES.get(); // Helps the game know how to turn this structure back to json to save to chunks
+        return RBStructures.OCEAN_STRUCTURES.get(); // Helps the game know how to turn this structure back to json to save to chunks
     }
 }

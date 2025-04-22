@@ -8,7 +8,7 @@ import net.minecraft.world.level.levelgen.structure.placement.StructurePlacement
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public class STStructurePlacements {
+public class RBStructurePlacements {
 
     public static final DeferredRegister<StructurePlacementType<?>> DEFERRED_REGISTRY_STRUCTURE_PLACEMENT_TYPE = DeferredRegister.create(Registries.STRUCTURE_PLACEMENT, StructureTutorialMain.MODID);
 

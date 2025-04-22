@@ -3,7 +3,7 @@ package com.revstudios.revsbetterstructures;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.revstudios.revsbetterstructures.STStructurePlacements;
+import com.revstudios.revsbetterstructures.RBStructurePlacements;
 import net.minecraft.core.Vec3i;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.level.ChunkPos;
@@ -85,7 +85,7 @@ public class DistanceBasedStructurePlacement extends RandomSpreadStructurePlacem
 
     @Override
     public StructurePlacementType<?> type() {
-        return STStructurePlacements.DISTANCE_BASED_STRUCTURE_PLACEMENT.get();
+        return RBStructurePlacements.DISTANCE_BASED_STRUCTURE_PLACEMENT.get();
     }
 
 }
