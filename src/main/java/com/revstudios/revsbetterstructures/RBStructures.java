@@ -1,9 +1,9 @@
 package com.revstudios.revsbetterstructures;
 
 import com.mojang.serialization.MapCodec;
-import com.telepathicgrunt.revsbetterstructures.structures.EndIslandStructures;
-import com.telepathicgrunt.revsbetterstructures.structures.OceanStructures;
-import com.telepathicgrunt.revsbetterstructures.structures.SkyStructures;
+import com.revstudios.revsbetterstructures.structures.EndIslandStructures;
+import com.revstudios.revsbetterstructures.structures.OceanStructures;
+import com.revstudios.revsbetterstructures.structures.SkyStructures;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
@@ -16,7 +16,7 @@ public class STStructures {
      * We are using the Deferred Registry system to register our structure as this is the preferred way on NeoForge.
      * This will handle registering the base structure for us at the correct time so we don't have to handle it ourselves.
      */
-    public static final DeferredRegister<StructureType<?>> DEFERRED_REGISTRY_STRUCTURE = DeferredRegister.create(Registries.STRUCTURE_TYPE, StructureTutorialMain.MODID);
+    public static final DeferredRegister<StructureType<?>> DEFERRED_REGISTRY_STRUCTURE = DeferredRegister.create(Registries.STRUCTURE_TYPE, RevsBetterStructures.MODID);
 
     /**
      * Registers the base structure itself and sets what its path is. In this case,

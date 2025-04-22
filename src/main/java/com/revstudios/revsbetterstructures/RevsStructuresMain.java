@@ -1,3 +1,4 @@
+
 package com.revstudios.revsbetterstructures;
 
 import net.neoforged.bus.api.IEventBus;
