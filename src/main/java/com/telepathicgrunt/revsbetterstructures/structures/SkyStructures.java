@@ -1,9 +1,9 @@
-package com.telepathicgrunt.structure_tutorial.structures;
+package com.revstudios.revsbetterstructures;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.telepathicgrunt.structure_tutorial.STStructures;
+import com.revstudios.revsbetterstructures.STStructures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
@@ -22,12 +22,12 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.LiquidSetting
 
 import java.util.Optional;
 
-public class EndIslandStructures extends Structure {
+public class SkyStructures extends Structure {
 
-    // A custom codec that changes the size limit for our code_structure_end_phantom_balloon.json's config to not be capped at 7.
+    // A custom codec that changes the size limit for our code_structure_sky_fan.json's config to not be capped at 7.
     // With this, we can have a structure with a size limit up to 30 if we want to have extremely long branches of pieces in the structure.
-    public static final MapCodec<EndIslandStructures> CODEC = RecordCodecBuilder.mapCodec(instance ->
-            instance.group(EndIslandStructures.settingsCodec(instance),
+    public static final MapCodec<SkyStructures> CODEC = RecordCodecBuilder.mapCodec(instance ->
+            instance.group(SkyStructures.settingsCodec(instance),
                     StructureTemplatePool.CODEC.fieldOf("start_pool").forGetter(structure -> structure.startPool),
                     ResourceLocation.CODEC.optionalFieldOf("start_jigsaw_name").forGetter(structure -> structure.startJigsawName),
                     Codec.intRange(0, 30).fieldOf("size").forGetter(structure -> structure.size),
@@ -36,7 +36,7 @@ public class EndIslandStructures extends Structure {
                     Codec.intRange(1, 128).fieldOf("max_distance_from_center").forGetter(structure -> structure.maxDistanceFromCenter),
                     DimensionPadding.CODEC.optionalFieldOf("dimension_padding", JigsawStructure.DEFAULT_DIMENSION_PADDING).forGetter(structure -> structure.dimensionPadding),
                     LiquidSettings.CODEC.optionalFieldOf("liquid_settings", JigsawStructure.DEFAULT_LIQUID_SETTINGS).forGetter(structure -> structure.liquidSettings)
-            ).apply(instance, EndIslandStructures::new));
+            ).apply(instance, SkyStructures::new));
 
     private final Holder<StructureTemplatePool> startPool;
     private final Optional<ResourceLocation> startJigsawName;
@@ -47,15 +47,15 @@ public class EndIslandStructures extends Structure {
     private final DimensionPadding dimensionPadding;
     private final LiquidSettings liquidSettings;
 
-    public EndIslandStructures(StructureSettings config,
-                               Holder<StructureTemplatePool> startPool,
-                               Optional<ResourceLocation> startJigsawName,
-                               int size,
-                               HeightProvider startHeight,
-                               Optional<Heightmap.Types> projectStartToHeightmap,
-                               int maxDistanceFromCenter,
-                               DimensionPadding dimensionPadding,
-                               LiquidSettings liquidSettings)
+    public SkyStructures(Structure.StructureSettings config,
+                         Holder<StructureTemplatePool> startPool,
+                         Optional<ResourceLocation> startJigsawName,
+                         int size,
+                         HeightProvider startHeight,
+                         Optional<Heightmap.Types> projectStartToHeightmap,
+                         int maxDistanceFromCenter,
+                         DimensionPadding dimensionPadding,
+                         LiquidSettings liquidSettings)
     {
         super(config);
         this.startPool = startPool;
@@ -94,25 +94,26 @@ public class EndIslandStructures extends Structure {
      * Use the biome tags for where to spawn the structure and users can datapack
      * it to spawn in specific biomes that aren't in the dimension they don't like if they wish.
      */
-    private static boolean extraSpawningChecks(GenerationContext context) {
+    private static boolean extraSpawningChecks(Structure.GenerationContext context) {
         // Grabs the chunk position we are at
         ChunkPos chunkpos = context.chunkPos();
 
-        // Checks to make sure our structure only spawns where the large end islands are and not over the void in the End.
+        // Checks to make sure our structure does not spawn above land that's higher than y = 150
+        // to demonstrate how this method is good for checking extra conditions for spawning
         return context.chunkGenerator().getFirstOccupiedHeight(
                 chunkpos.getMinBlockX(),
                 chunkpos.getMinBlockZ(),
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 context.heightAccessor(),
-                context.randomState()) > context.chunkGenerator().getMinY();
+                context.randomState()) < 150;
     }
 
     @Override
-    public Optional<GenerationStub> findGenerationPoint(GenerationContext context) {
+    public Optional<Structure.GenerationStub> findGenerationPoint(Structure.GenerationContext context) {
 
         // Check if the spot is valid for our structure. This is just as another method for cleanness.
         // Returning an empty optional tells the game to skip this spot as it will not generate the structure.
-        if (!EndIslandStructures.extraSpawningChecks(context)) {
+        if (!SkyStructures.extraSpawningChecks(context)) {
             return Optional.empty();
         }
 
@@ -123,7 +124,7 @@ public class EndIslandStructures extends Structure {
         ChunkPos chunkPos = context.chunkPos();
         BlockPos blockPos = new BlockPos(chunkPos.getMinBlockX(), startY, chunkPos.getMinBlockZ());
 
-        Optional<GenerationStub> structurePiecesGenerator =
+        Optional<Structure.GenerationStub> structurePiecesGenerator =
                 JigsawPlacement.addPieces(
                         context, // Used for JigsawPlacement to get all the proper behaviors done.
                         this.startPool, // The starting pool to use to create the structure layout from
@@ -132,7 +133,7 @@ public class EndIslandStructures extends Structure {
                         blockPos, // Where to spawn the structure.
                         false, // "useExpansionHack" This is for legacy villages to generate properly. You should keep this false always.
                         this.projectStartToHeightmap, // Adds the terrain height's y value to the passed in blockpos's y value. (This uses WORLD_SURFACE_WG heightmap which stops at top water too)
-                        // Here at projectStartToHeightmap, start_height's y value is 20 which means the structure spawn 20 blocks above terrain height if start_height and project_start_to_heightmap is defined in structure JSON.
+                        // Here at projectStartToHeightmap, start_height's y value is 60 which means the structure spawn 60 blocks above terrain height if start_height and project_start_to_heightmap is defined in structure JSON.
                         // Set projectStartToHeightmap to be empty optional for structure to be place only at the passed in blockpos's Y value instead.
                         // Definitely keep this an empty optional when placing structures in the nether as otherwise, heightmap placing will put the structure on the Bedrock roof.
                         this.maxDistanceFromCenter, // Maximum limit for how far pieces can spawn from center. You cannot set this bigger than 128 or else pieces gets cutoff.
@@ -152,6 +153,6 @@ public class EndIslandStructures extends Structure {
 
     @Override
     public StructureType<?> type() {
-        return STStructures.END_ISLAND_STRUCTURES.get(); // Helps the game know how to turn this structure back to json to save to chunks
+        return STStructures.SKY_STRUCTURES.get(); // Helps the game know how to turn this structure back to json to save to chunks
     }
 }

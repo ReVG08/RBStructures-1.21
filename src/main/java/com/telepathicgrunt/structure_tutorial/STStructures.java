@@ -1,9 +1,9 @@
-package com.telepathicgrunt.structure_tutorial;
+package com.revstudios.revsbetterstructures;
 
 import com.mojang.serialization.MapCodec;
-import com.telepathicgrunt.structure_tutorial.structures.EndIslandStructures;
-import com.telepathicgrunt.structure_tutorial.structures.OceanStructures;
-import com.telepathicgrunt.structure_tutorial.structures.SkyStructures;
+import com.telepathicgrunt.revsbetterstructures.structures.EndIslandStructures;
+import com.telepathicgrunt.revsbetterstructures.structures.OceanStructures;
+import com.telepathicgrunt.revsbetterstructures.structures.SkyStructures;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
@@ -20,7 +20,7 @@ public class STStructures {
 
     /**
      * Registers the base structure itself and sets what its path is. In this case,
-     * this base structure will have the resourcelocation of structure_tutorial:sky_structures.
+     * this base structure will have the resourcelocation of revsbetterstructures:sky_structures.
      */
     public static final DeferredHolder<StructureType<?>, StructureType<SkyStructures>> SKY_STRUCTURES = DEFERRED_REGISTRY_STRUCTURE.register("sky_structures", () -> explicitStructureTypeTyping(SkyStructures.CODEC));
     public static final DeferredHolder<StructureType<?>, StructureType<OceanStructures>> OCEAN_STRUCTURES = DEFERRED_REGISTRY_STRUCTURE.register("ocean_structures", () -> explicitStructureTypeTyping(OceanStructures.CODEC));
