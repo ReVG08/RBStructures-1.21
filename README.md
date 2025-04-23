@@ -21,7 +21,8 @@ By sending your builds at our discord! https://discord.gg/RHqGQUjhDu
 ------------------------------------------------------------------------------------------------
 Credits:
 
-Coders for 1.21: RenatoGloe/ReVG08
+Coders for 1.21: Renato "Rev" Vincoleto Gloe
+
 Legacy Coders(1.16-1.19): ReVG08, Blackout and Crosby
 
 Builders: Cursed Warrior, ElectricKhan, monkeyiskool, Phwee and ReVG08
