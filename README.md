@@ -1,4 +1,4 @@
-# Rev-s-Better-Structures 1.21!!
+# Rev's-Better-Structures 1.21!!
 Entirely rewritten version of Rev's Better Structures which adds a bunch of new structures, randomly generated small rock chunks, fallen trees, and much more. Now finally on 1.21!!
 
 Rev's Better structures is sponsored by Bisect hosting!
@@ -23,6 +23,6 @@ Credits:
 
 Coders for 1.21: Renato "Rev" Vincoleto Gloe
 
-Legacy Coders(1.16-1.19): ReVG08, Blackout and Crosby
+Legacy Coders(1.16-1.19): Renato "Rev" Vincoleto Gloe, Blackout and Crosby
 
 Builders: Cursed Warrior, ElectricKhan, monkeyiskool, Phwee and ReVG08
