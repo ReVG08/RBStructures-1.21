@@ -12,7 +12,6 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class RBStructures {
-
     public static final DeferredRegister<StructureType<?>> DEFERRED_REGISTRY_STRUCTURE =
             DeferredRegister.create(Registries.STRUCTURE_TYPE, RevsBetterStructures.MODID);
 

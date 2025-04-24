@@ -1,4 +1,4 @@
-package com.revstudios.revsbetterstructures;
+package com.revstudios.revsbetterstructures.structureplacement;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
@@ -16,7 +16,6 @@ import net.minecraft.world.level.levelgen.structure.placement.StructurePlacement
 import java.util.Optional;
 
 public class DistanceBasedStructurePlacement extends RandomSpreadStructurePlacement {
-
     // Special codec where we tacked on a "min_distance_from_world_origin" field so
     // we can now have structures spawn based on distance from world center.
     public static final MapCodec<DistanceBasedStructurePlacement> CODEC = RecordCodecBuilder.mapCodec((instance) -> instance.group(
@@ -87,5 +86,4 @@ public class DistanceBasedStructurePlacement extends RandomSpreadStructurePlacem
     public StructurePlacementType<?> type() {
         return RBStructurePlacements.DISTANCE_BASED_STRUCTURE_PLACEMENT.get();
     }
-
 }
