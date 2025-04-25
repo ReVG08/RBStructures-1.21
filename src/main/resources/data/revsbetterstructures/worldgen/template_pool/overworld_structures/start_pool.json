@@ -27,4 +27,4 @@
       { "element_type": "minecraft:single_pool_element", "weight": 10, "location": "revsbetterstructures:rockchamp", "projection": "rigid" },
       { "element_type": "minecraft:single_pool_element", "weight": 10, "location": "revsbetterstructures:rockchamp2", "projection": "rigid" }
     ]
-  }
+}

@@ -36,7 +36,6 @@ import java.util.Map;
 import java.util.Optional;
 
 public class OceanStructures extends Structure {
-
     // A customized structure settings codec to allow us to expand the abilities of the biomes field.
     public static final MapCodec<StructureSettings> CUSTOM_STRUCTURE_SETTINGS_CODEC = RecordCodecBuilder.mapCodec(
             codecBuilder -> codecBuilder.group(

@@ -1,4 +1,4 @@
-package com.revstudios.revsbetterstructures;
+package com.revstudios.revsbetterstructures.utilities;
 
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.Codec;

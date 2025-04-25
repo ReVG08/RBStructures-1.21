@@ -7,7 +7,6 @@ import org.apache.logging.log4j.Logger;
 
 @Mod(RevsBetterStructures.MODID)
 public class RevsBetterStructures {
-
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "revsbetterstructures";
 

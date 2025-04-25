@@ -3,6 +3,7 @@ package com.revstudios.revsbetterstructures.structures;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.revstudios.revsbetterstructures.RBStructures;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
@@ -22,7 +23,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.LiquidSetting
 import java.util.Optional;
 
 public class OverworldStructures extends Structure {
-
     // Codec to handle JSON/data-driven configs
     public static final MapCodec<OverworldStructures> CODEC = RecordCodecBuilder.mapCodec(instance ->
             instance.group(
